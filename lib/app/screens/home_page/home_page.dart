@@ -318,7 +318,7 @@ class _HomePageState extends State<HomePage> {
       children: [
         NormalText(
           title: 'Who am i?',
-          color: Colors.red,
+          color: AppColor.kAppMainColor,
           fontSize: isMobile ? 16 : 18,
         ),
         NormalText(
