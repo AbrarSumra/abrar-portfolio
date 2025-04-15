@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/app_colors/app_colors.dart';
+import '../../../constants/utils/resume_helper_web.dart';
 import '../../../constants/widgets/custom_pressable_button.dart';
 import '../../../constants/widgets/hover_button.dart';
 import '../../../constants/widgets/text_constant/text_constant.dart';
@@ -98,10 +99,7 @@ class DrawerPage extends StatelessWidget {
               fontColor: AppColor.kDarkGreyColor,
               fontWeight: FontWeight.w600,
               onTap: () {
-                /*html.AnchorElement anchorElement =
-                    html.AnchorElement(href: 'assets/resume.pdf')
-                      ..setAttribute('download', 'Abrar_Khira_Resume.pdf')
-                      ..click();*/
+                downloadWeb();
               },
             ),
           ),
