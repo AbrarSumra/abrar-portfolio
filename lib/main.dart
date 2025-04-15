@@ -1,9 +1,6 @@
 import 'dart:async';
-
-import 'package:abrar_portfolio/app/screens/splash_screen/splash_screen.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -17,18 +14,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  //
-  // // Registers a background message handler to process messages when the app is in the background
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-  // Requests the user's permission for displaying notifications
-  await messaging.requestPermission(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
 
   // for Login Save
   /*SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -72,27 +57,6 @@ class _MyAppState extends State<MyApp> {
 
     _connectivitySubscription =
         Connectivity().onConnectivityChanged.listen(_updateConnectionStatus);
-
-    // Listen for foreground messages
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Foreground notification: ${message.notification?.title}');
-    });
-
-    // Listen for notification clicks (background or foreground)
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print('Notification clicked: ${message.data}');
-      _handleNotificationClick(message);
-    });
-
-    // Handle when the app is launched by a notification
-    FirebaseMessaging.instance
-        .getInitialMessage()
-        .then((RemoteMessage? message) {
-      if (message != null) {
-        print('App opened by notification: ${message.data}');
-        _handleNotificationClick(message);
-      }
-    });
   }
 
   @override
@@ -185,69 +149,6 @@ class _MyAppState extends State<MyApp> {
           ),
         );
       },
-    );
-  }
-}
-
-// Background message handler to process notifications when the app is closed or in the background
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print("Handling a background message: ${message.messageId}");
-}
-
-// Handle notification click
-void _handleNotificationClick(RemoteMessage message) {
-  if (message.data.containsKey('page')) {
-    String page = message.data['page'];
-
-    switch (page) {
-      case 'ProductDetailPage':
-        if (message.data.containsKey('productId')) {
-          String productId = message.data['productId'];
-          String productSubCatId = message.data['productSubCatId'] ?? '';
-
-          // Navigate to the ProductDetailPage
-          MyApp.navigatorKey.currentState?.push(
-            MaterialPageRoute(
-              builder: (context) => HomePage(),
-            ),
-          );
-        } else {
-          print(
-              'Missing productId in notification data for ProductDetailPage.');
-        }
-        break;
-
-      case 'NotificationFromAdminPage':
-        MyApp.navigatorKey.currentState?.push(
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-        break;
-
-      case 'UsersAllSupportMsgPage':
-        MyApp.navigatorKey.currentState?.push(
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-        break;
-
-      case 'HomePage':
-      default:
-        MyApp.navigatorKey.currentState?.push(
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-        break;
-    }
-  } else {
-    print('No page information found in notification data.');
-    MyApp.navigatorKey.currentState?.push(
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
     );
   }
 }
