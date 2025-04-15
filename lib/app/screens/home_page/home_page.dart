@@ -98,20 +98,44 @@ class _HomePageState extends State<HomePage> {
                 key: homeKey,
                 child: Column(
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(child: _introSection(isMobile, isHovered)),
-                        ClipOval(
-                          child: Image.asset(
-                            ImagePath.introImgPath,
-                            width: isMobile ? 120.h : 80.w,
-                            height: isMobile ? 120.h : 80.w,
-                            fit: BoxFit.cover,
+                    isMobile
+                        ? Stack(
+                            children: [
+                              _introSection(isMobile, isHovered),
+                              Positioned(
+                                right: 10,
+                                top: 45.h,
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    ImagePath.introImgPath,
+                                    width: 130.w,
+                                    height: 130.w,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  child: _introSection(isMobile, isHovered)),
+                              Column(
+                                children: [
+                                  heightBox(60),
+                                  ClipOval(
+                                    child: Image.asset(
+                                      ImagePath.introImgPath,
+                                      width: 100.w,
+                                      height: 100.w,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
