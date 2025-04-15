@@ -3,6 +3,7 @@ import 'package:abrar_portfolio/app/constants/widgets/custom_pressable_button.da
 import 'package:abrar_portfolio/app/constants/widgets/text_constant/text_constant.dart';
 import 'package:abrar_portfolio/app/constants/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import '../../../constants/utils/resume_helper_web.dart';
 import '../../../constants/widgets/hover_button.dart';
 
 class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -76,7 +77,7 @@ class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
                   fontColor: AppColor.kDarkGreyColor,
                   fontWeight: FontWeight.w600,
                   onTap: () {
-                    //downloadWeb();
+                    downloadWeb();
                   },
                 ),
                 widthBox(5),

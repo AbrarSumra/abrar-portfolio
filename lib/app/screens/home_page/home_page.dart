@@ -98,37 +98,20 @@ class _HomePageState extends State<HomePage> {
                 key: homeKey,
                 child: Column(
                   children: [
-                    isMobile
-                        ? Stack(
-                            children: [
-                              _introSection(isMobile, isHovered),
-                              Positioned(
-                                right: 10,
-                                top: 30.h,
-                                child: Image.asset(
-                                  ImagePath.introImgPath,
-                                  width: 80.w,
-                                ),
-                              ),
-                            ],
-                          )
-                        : Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                  child: _introSection(isMobile, isHovered)),
-                              Column(
-                                children: [
-                                  heightBox(60),
-                                  Image.asset(
-                                    ImagePath.introImgPath,
-                                    height: 400.h,
-                                    width: 80.w,
-                                  ),
-                                ],
-                              ),
-                            ],
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(child: _introSection(isMobile, isHovered)),
+                        ClipOval(
+                          child: Image.asset(
+                            ImagePath.introImgPath,
+                            width: isMobile ? 120.h : 80.w,
+                            height: isMobile ? 120.h : 80.w,
+                            fit: BoxFit.cover,
                           ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
