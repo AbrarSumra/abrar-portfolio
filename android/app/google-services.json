@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382143581446",
+    "project_id": "abrar-khira-portfolio",
+    "storage_bucket": "abrar-khira-portfolio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382143581446:android:e5d948b6720e1a01ea6287",
+        "android_client_info": {
+          "package_name": "com.abrar_portfolio.abrar_portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4J39gFLm9E5A2cbfHxSL8vHEeMMJkSa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
