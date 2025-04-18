@@ -17,7 +17,6 @@ class AppColor {
   static const Color kBottomBarColor = Color(0xFFcfd1d4);
   static Color kGreyColor = Colors.grey.shade600;
   static const Color kLightGreyColor = Color(0xFFcfd1d4);
-  // static const Color kAppMainDarkColor = Color(0xFF3e0080);
 
   static const Color kAppWhiteColor = Color(0xFFf3f5f9);
 
