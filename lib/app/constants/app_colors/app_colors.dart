@@ -6,7 +6,6 @@ class AppColor {
   static const Color kAppPurpleColor = Color(0xFF9947f3);
 
   /// App Main Colors
-  // static const Color kAppMainColor = Color(0xFF9947f3);
   static const Color kAppMainColor = Color(0xFF3066c9);
   static const Color kAppMainLightColor = Color(0xFFbcd1f7);
 
