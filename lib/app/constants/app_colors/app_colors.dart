@@ -21,7 +21,6 @@ class AppColor {
   static const Color kAppWhiteColor = Color(0xFFf3f5f9);
 
   static const Color kAppRedColor = Color(0xFF820001);
-  // static const Color kAppOrangeColor = Color(0xFFff8462);
   static const Color kAppLightOrangeColor = Color(0xFFfcc9bb);
   static const Color kLightBlueColor = Color(0xFFe7f5ff);
 
